@@ -1,0 +1,13 @@
+// Only the part files are imported here
+
+@use "./abstracts/mixins";
+@use "./abstracts/variables";
+@use "./base/base";
+@use "./base/fonts";
+@use "./base/helpers";
+@use "./components/buttons";
+@use "./layout/footer";
+@use "./layout/grid";
+@use "./layout/header";
+@use "./layout/navigation";
+@use "./pages/home";

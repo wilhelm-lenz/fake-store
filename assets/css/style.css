@@ -1,0 +1,90 @@
+/* =================================== */
+/* DESIGN SYSTEM */
+/* =================================== */
+/*
+
+! --- 01 TYPOGRAPHY SYSTEM
+
+* Font size system(px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+* Font weights
+Default: 400
+
+* Line heights
+Default: 1
+
+! --- 02 COLORS
+
+- Primary: Primäre Farbe 
+- Tints (Farbtöne):
+- Shades (Schattierungen):
+- Accents:
+- Greys: #555 Beliebte Grau Töne
+
+! --- 05 SHADOWS
+
+! --- 06 BORDER-RADIUS
+
+! --- 07 WHITESPACE
+
+* Spacing System (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+/* =================================== */
+/* FONTS */
+/* =================================== */
+
+@font-face {
+  font-family: "";
+  src: url();
+}
+
+/* =================================== */
+/* RESET STYLES */
+/* =================================== */
+
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+:root {
+
+}
+
+/* ------------------------ */
+/* HELPER CLASSES */
+/* ------------------------ */
+
+.container{max-width: 1440px; margin: 0 auto;}
+
+/* ------------------------ */
+/* GENERAL STYLES */
+/* ------------------------ */
+
+html {
+/* 10px / 16px * 100% = 62,5% */
+/* Percentage of users browser font-size setting */
+font-size: 62.5%;
+}
+
+body {
+font-family: sans-serif;
+line-height: 1;
+font-weight: 400;
+color: #555;
+}
+
+/* ------------------------ */
+/* COMPONENT STYLES */
+/* ------------------------ */
+
+/* ------ HEADER ------ */
+
+/* ------ MAIN ------ */
+
+/* ------ FOOTER ------ */
