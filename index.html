@@ -9,20 +9,81 @@
 </head>
 
 <body>
-<header>
 
-<nav>
+  <header class="header">
+    <h1 class="heading-primary">SuperFakeStore</h1>
+    <div class="container">
+      <section class="search-bar">
+        <form class="search-form" onsubmit="return false">
+          <input type="search" name="search-input" id="search-input" class="search-input"
+            placeholder="Search products...">
+          <select name="search-filter-items" id="search-filter-items" class="search-filter-items">
+            <option value="" selected>Sort by</option>
+            <option value="ascending">Price - Low to High</option>
+            <option value="descending">Price - High to Low</option>
+          </select>
+        </form>
 
-</nav>
-</header>
-<main>
+        <article class="section-categories">
+          <h2 class="heading-secondary">Filter by Categories</h2>
+          <div class="categorie-btns-wrapper">
+            <button class="categorie-btn">all products</button>
+            <button class="categorie-btn">electronics</button>
+            <button class="categorie-btn">jewelery</button>
+            <button class="categorie-btn">men's clothing</button>
+            <button class="categorie-btn">women's clothing</button>
+          </div>
+        </article>
+      </section>
+    </div>
+  </header>
+  <div class="container">
+    <main>
+      <section class="section-gallery"></section>
+    </main>
+  </div>
 
-</main>
-<footer>
-
-</footer>
-
-<script src="./assets/js/main.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
+
+<!-- 
+- html und css struktur erstellen
+  - header .header  
+    - h1 .heading-primary
+    - nav .nav-bar
+      - form . form
+        - input .search-input
+        - select .sort-filter-items
+          - option 
+      - section .section-categories
+        - h2  .heading-secondary
+        - buttons * 4 .categorie-btn
+  - main
+    - section .section-gallery
+      - article .card
+        - img .card-img
+        - h3 .card-headline
+        - hr .card-divider
+        - div .card-info-wrapper
+          - p .card-price
+          - button .card-cta-btn
+
+
+- javascript
+  - zugriff auf daten erstellen
+  - karte für html erstellen und ins document schieben.
+  - image für das card image holen
+  - headline für die card headline holen
+  - price für den card price holen
+  - alle benötigten html elemente selektieren
+    - search-input
+    - select
+    - evtl. buttons für categories
+  - sort function für low und für high erstellen für den search Term
+    - price - low
+    - price - high
+  -  eine function erstellen die nach Kategorien filtert
+    
+ -->
