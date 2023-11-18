@@ -140,7 +140,7 @@ a {
 
 .search-input {
   width: 40%;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   padding-block: 1.25rem;
   border: none;
   margin-right: 4rem;
@@ -161,7 +161,7 @@ a {
 }
 
 .search-filter-items {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   width: auto;
   text-align: center;
   padding-block: 1.2rem;
@@ -194,7 +194,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .categorie-btn {
@@ -300,7 +301,7 @@ a {
 .card-cta-btn {
   background-color: #212529;
   justify-self: end;
-  font-size: 2.2rem;
+  font-size: 2rem;
   padding: 0.8rem 1.6rem;
   border-radius: 0.8rem;
   font-family: "Inter-Medium";
