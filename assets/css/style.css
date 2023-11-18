@@ -70,6 +70,10 @@ Default: 1
 }
 
 :root {
+  --btn-and-link-color: #1864ab;
+  --btn-and-link-color-shadow: #1864ab60;
+  --accent-color: #ff7f50;
+  --accent-color-shadow: #ff7f5060;
 }
 
 /* ------------------------ */
@@ -143,12 +147,12 @@ a {
   text-align: center;
   background-color: transparent;
   color: #fff;
-  border-bottom: 2px solid #ff7f50;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .search-input:focus {
   outline: none;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid var(--btn-and-link-color);
 }
 
 #Search::-webkit-search-cancel-button {
@@ -164,12 +168,12 @@ a {
   border: none;
   background-color: transparent;
   color: #fff;
-  border-bottom: 2px solid #ff7f50;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .search-filter-items:focus {
   outline: none;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid var(--btn-and-link-color);
 }
 
 .ascending {
@@ -197,7 +201,7 @@ a {
   font-size: 1.8rem;
   padding: 0.8rem 1.6rem;
   background-color: transparent;
-  border: 2px solid #007bff;
+  border: 2px solid var(--btn-and-link-color);
   border-radius: 0.8rem;
   color: #fff;
   transition: all 0.3s ease-out;
@@ -205,13 +209,13 @@ a {
 
 .categorie-btn:hover {
   cursor: pointer;
-  border: 2px solid #ff7f50;
-  box-shadow: 5px 5px 10px #007bff80;
+  border: 2px solid var(--accent-color);
+  box-shadow: 5px 5px 10px var(--btn-and-link-color-shadow);
   transform: translateY(-3px);
 }
 
 .categorie-btn:active {
-  box-shadow: 3px 3px 10px #007bff80;
+  box-shadow: 3px 3px 10px var(--btn-and-link-color-shadow);
   transform: translateY(1px);
 }
 
@@ -234,13 +238,13 @@ a {
   justify-content: space-between;
   border-radius: 0.8rem;
   border: 1px solid #212529;
-  box-shadow: 5px 5px 10px #007bff60;
+  box-shadow: 5px 5px 10px var(--btn-and-link-color-shadow);
   transition: all 0.5s ease-out;
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 5px 5px 10px #ff7f5060;
+  box-shadow: 5px 5px 10px var(--accent-color-shadow);
 }
 
 .card-header-wrapper {
@@ -278,7 +282,7 @@ a {
 .card-divider {
   width: 90%;
   margin: 0 auto 2rem;
-  border: 0.5px solid #007bff;
+  border: 0.5px solid var(--btn-and-link-color);
 }
 
 .card-info-wrapper {
@@ -303,7 +307,7 @@ a {
 }
 
 .card-cta-btn:hover {
-  background-color: #007bff;
+  background-color: var(--btn-and-link-color);
 }
 
 /* ------ FOOTER ------ */
