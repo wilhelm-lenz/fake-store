@@ -294,7 +294,7 @@ a {
 }
 
 .card-cta-btn {
-  background-color: #007bff;
+  background-color: #212529;
   justify-self: end;
   font-size: 2.2rem;
   padding: 0.8rem 1.6rem;
@@ -303,7 +303,7 @@ a {
 }
 
 .card-cta-btn:hover {
-  background-color: #212529;
+  background-color: #007bff;
 }
 
 /* ------ FOOTER ------ */
