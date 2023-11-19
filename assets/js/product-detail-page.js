@@ -1,15 +1,15 @@
 "use strict";
 
+const burgerMenuIcon = document.querySelector(".burger-menu");
+const navigationSidebar = document.querySelector(".navigation");
+
 const products = JSON.parse(localStorage.getItem("products"));
-console.log(products);
 
 const productDetailsSectionElement = document.querySelector(
   ".section-product-details"
 );
 const cartIconImgElement = document.querySelector(".cart-icon");
 const cartIconWrapperDivElement = document.querySelector(".cart-icon-wrapper");
-
-console.log(cartIconImgElement);
 
 const createProductDetails = (productObj) => {
   const productArticleElement = document.createElement("article");
@@ -93,3 +93,16 @@ const showProduct = () => {
 };
 
 showProduct();
+
+let isNavOpen = false;
+
+burgerMenuIcon.addEventListener("click", () => {
+  if (!isNavOpen) {
+    navigationSidebar.style.left = 0;
+    burgerMenuIcon.style.paddingLeft = "8rem";
+  } else {
+    navigationSidebar.style.left = "-100%";
+    burgerMenuIcon.style.paddingLeft = "0";
+  }
+  isNavOpen = !isNavOpen;
+});

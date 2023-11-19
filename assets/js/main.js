@@ -6,6 +6,8 @@ const searchFilterSelectElement = document.querySelector(
   ".search-filter-items"
 );
 const categoryBtnElements = document.querySelectorAll(".categorie-btn");
+const burgerMenuIcon = document.querySelector(".burger-menu");
+const navigationSidebar = document.querySelector(".navigation");
 
 let currentProducts = [];
 
@@ -163,3 +165,16 @@ fetchData("products");
 sortProducts();
 searchItems();
 filterProducts();
+
+let isNavOpen = false;
+
+burgerMenuIcon.addEventListener("click", () => {
+  if (!isNavOpen) {
+    navigationSidebar.style.left = 0;
+    burgerMenuIcon.style.paddingLeft = "8rem";
+  } else {
+    navigationSidebar.style.left = "-100%";
+    burgerMenuIcon.style.paddingLeft = "0";
+  }
+  isNavOpen = !isNavOpen;
+});
