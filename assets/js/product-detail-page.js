@@ -6,6 +6,10 @@ console.log(products);
 const productDetailsSectionElement = document.querySelector(
   ".section-product-details"
 );
+const cartIconImgElement = document.querySelector(".cart-icon");
+const cartIconWrapperDivElement = document.querySelector(".cart-icon-wrapper");
+
+console.log(cartIconImgElement);
 
 const createProductDetails = (productObj) => {
   const productArticleElement = document.createElement("article");
@@ -51,6 +55,16 @@ const createProductDetails = (productObj) => {
   productDetailsPricePElement.innerHTML = `$ <span class="price">${productObj.price}</span>`;
   productDetailsAddToCartBtnElement.textContent = "Add to cart";
 
+  let countItemNumberInCart = 0;
+
+  productDetailsAddToCartBtnElement.addEventListener("click", () => {
+    const cartItemNumber = document.createElement("span");
+    cartItemNumber.classList.add("item-number");
+    countItemNumberInCart++;
+    cartItemNumber.textContent = countItemNumberInCart;
+    cartIconWrapperDivElement.appendChild(cartItemNumber);
+  });
+
   productDetailsSectionElement.append(
     productArticleElement,
     productDetailsArticleElement
@@ -65,8 +79,6 @@ const createProductDetails = (productObj) => {
     productDetailsAddToCartBtnElement
   );
 };
-
-const h1 = document.querySelector("h1");
 
 let url = new URL(window.location.href);
 const searchParam = new URLSearchParams(url.search);
