@@ -16,6 +16,7 @@ const createProductDetails = (productObj) => {
   const productDetailsDescriptionPElement = document.createElement("p");
   const productDetailsCategoryPElement = document.createElement("p");
   const productDetailsPricePElement = document.createElement("p");
+  const productDetailsAddToCartBtnElement = document.createElement("button");
 
   productArticleElement.classList.add("product-details-img-wrapper");
   productImgElement.classList.add("product-details-img");
@@ -27,6 +28,9 @@ const createProductDetails = (productObj) => {
   );
   productDetailsCategoryPElement.classList.add("product-details-category");
   productDetailsPricePElement.classList.add("product-details-price");
+  productDetailsAddToCartBtnElement.classList.add(
+    "product-details-add-to-cart-btn"
+  );
 
   let stars = "";
   for (let i = 0; i < 5; i++) {
@@ -44,7 +48,8 @@ const createProductDetails = (productObj) => {
 
   productDetailsDescriptionPElement.textContent = productObj.description;
   productDetailsCategoryPElement.innerHTML = `Category: <span class="category">${productObj.category}</span>`;
-  productDetailsPricePElement.textContent = "$ " + productObj.price;
+  productDetailsPricePElement.innerHTML = `$ <span class="price">${productObj.price}</span>`;
+  productDetailsAddToCartBtnElement.textContent = "Add to cart";
 
   productDetailsSectionElement.append(
     productArticleElement,
@@ -55,9 +60,9 @@ const createProductDetails = (productObj) => {
     productDetailsHeadlineH3Element,
     productDetailsRaitingPElement,
     productDetailsDescriptionPElement,
-    productDetailsDescriptionPElement,
     productDetailsCategoryPElement,
-    productDetailsPricePElement
+    productDetailsPricePElement,
+    productDetailsAddToCartBtnElement
   );
 };
 
