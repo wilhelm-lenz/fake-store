@@ -25,13 +25,20 @@ const fetchData = (urlParam) => {
     .then((data) => {
       currentProducts = [...data];
       updateDisplay();
-      console.log(data);
+      const cards = document.querySelectorAll(".card");
+      for (let i = 0; i < currentProducts.length; i++) {
+        cards[i].addEventListener("click", () => {
+          const paramId = currentProducts[i].id;
+          window.location.href = `./assets/html/product-detail-page.html?id=${paramId}`;
+        });
+      }
     })
     .catch((error) => console.log(error));
 };
 
 const updateDisplay = () => {
   gallerySectionElement.innerHTML = "";
+  localStorage.setItem("products", JSON.stringify(currentProducts));
   currentProducts.forEach((product) => {
     createProductCard(product);
   });
@@ -66,10 +73,6 @@ const createProductCard = (productParam) => {
   cardDivElement.classList.add("card-info-wrapper");
   cardParagraphElement.classList.add("card-price");
   cardButtonElement.classList.add("card-cta-btn");
-  cardButtonElement.setAttribute(
-    "href",
-    "./assets/html/product-detail-page.html"
-  );
 
   gallerySectionElement.append(cardArticleElement);
   cardHeaderDivElement.append(cardImgElement, cardH3Element);
@@ -81,12 +84,10 @@ const createProductCard = (productParam) => {
 const searchItems = () => {
   if (currentProducts !== undefined) {
     searchTermInputElement.addEventListener("input", () => {
-      const searchTerm = searchTermInputElement.value
-        .toLocaleLowerCase()
-        .trim();
+      const searchTerm = searchTermInputElement.value.toLowerCase().trim();
       gallerySectionElement.innerHTML = "";
       currentProducts.filter((product) => {
-        const productTitle = product.title.toLocaleLowerCase().trim();
+        const productTitle = product.title.toLowerCase().trim();
         if (productTitle.includes(searchTerm)) {
           createProductCard(product);
         }
