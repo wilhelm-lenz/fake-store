@@ -103,6 +103,8 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   font-family: "Inter-Regular";
+  position: relative;
+  z-index: -3;
 }
 
 a {
@@ -118,10 +120,23 @@ a {
 
 .header {
   text-align: center;
-  background-color: #212529;
-  padding-block: 4%;
+  padding-block: 4% 8%;
   color: #fff;
   position: relative;
+  background: url("../img/resourses/shopping.jpg") center center / cover
+    no-repeat;
+  z-index: -2;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(34, 38, 42, 0.8);
+  z-index: -1;
 }
 
 .sidebar {
@@ -537,6 +552,7 @@ a {
 
   .heading-primary {
     font-size: 3.2rem;
+    margin-top: 2rem;
   }
 
   .heading-secondary {
