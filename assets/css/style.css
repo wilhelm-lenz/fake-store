@@ -200,15 +200,20 @@ a {
 }
 
 .item-number {
-  padding: 0.4rem;
+  border-radius: 50%;
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 1rem;
   background-color: var(--btn-and-link-color);
   position: absolute;
   top: 0;
   right: 0;
-  margin-right: 9.4rem;
-  border-radius: 50%;
-  margin-top: -1rem;
+  margin-right: 8.2rem;
   font-size: 1rem;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .heading-primary {
@@ -547,7 +552,7 @@ a {
   }
 
   .item-number {
-    margin-right: 3rem;
+    margin-right: 2rem;
   }
 
   .heading-primary {

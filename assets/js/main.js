@@ -61,7 +61,6 @@ const createProductCard = (productParam) => {
 
   cardArticleElement.classList.add("card");
   cardHeaderDivElement.classList.add("card-header-wrapper");
-
   cardImgElement.classList.add("card-img");
   cardH3Element.classList.add("card-headline");
   cardFooterDivElement.classList.add("card-footer-wrapper");

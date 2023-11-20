@@ -1,15 +1,21 @@
 "use strict";
 
+const products = JSON.parse(localStorage.getItem("products"));
+let url = new URL(window.location.href);
+const searchParam = new URLSearchParams(url.search);
+const searchParamValue = searchParam.get("id");
+
 const burgerMenuIcon = document.querySelector(".burger-menu");
 const navigationSidebar = document.querySelector(".navigation");
-
-const products = JSON.parse(localStorage.getItem("products"));
-
 const productDetailsSectionElement = document.querySelector(
   ".section-product-details"
 );
 const cartIconImgElement = document.querySelector(".cart-icon");
-const cartIconWrapperDivElement = document.querySelector(".cart-icon-wrapper");
+const cartIconWrapperDivElement = document.querySelector(".menu-icon-wrapper");
+
+let stars = "";
+let countItemNumberInCart = 0;
+let isNavOpen = false;
 
 const createProductDetails = (productObj) => {
   const productArticleElement = document.createElement("article");
@@ -36,14 +42,7 @@ const createProductDetails = (productObj) => {
     "product-details-add-to-cart-btn"
   );
 
-  let stars = "";
-  for (let i = 0; i < 5; i++) {
-    if (i < productObj.rating.rate) {
-      stars += "⭑";
-    } else {
-      stars += "⭐︎";
-    }
-  }
+  createRatingStars(productObj);
 
   productImgElement.setAttribute("src", productObj.image);
   productImgElement.setAttribute("alt", productObj.description);
@@ -55,15 +54,7 @@ const createProductDetails = (productObj) => {
   productDetailsPricePElement.innerHTML = `$ <span class="price">${productObj.price}</span>`;
   productDetailsAddToCartBtnElement.textContent = "Add to cart";
 
-  let countItemNumberInCart = 0;
-
-  productDetailsAddToCartBtnElement.addEventListener("click", () => {
-    const cartItemNumber = document.createElement("span");
-    cartItemNumber.classList.add("item-number");
-    countItemNumberInCart++;
-    cartItemNumber.textContent = countItemNumberInCart;
-    cartIconWrapperDivElement.appendChild(cartItemNumber);
-  });
+  createCartNumberOfItems(productDetailsAddToCartBtnElement);
 
   productDetailsSectionElement.append(
     productArticleElement,
@@ -80,9 +71,41 @@ const createProductDetails = (productObj) => {
   );
 };
 
-let url = new URL(window.location.href);
-const searchParam = new URLSearchParams(url.search);
-const searchParamValue = searchParam.get("id");
+const createRatingStars = (productParam) => {
+  const product = productParam;
+  for (let i = 0; i < 5; i++) {
+    if (i < product.rating.rate) {
+      stars += "⭑";
+    } else {
+      stars += "⭐︎";
+    }
+  }
+};
+
+const createCartNumberOfItems = (productDetailsAddToCartBtnElementParam) => {
+  const productDetailsAddToCartBtnElement =
+    productDetailsAddToCartBtnElementParam;
+  productDetailsAddToCartBtnElement.addEventListener("click", () => {
+    const cartItemNumber = document.createElement("span");
+    cartItemNumber.classList.add("item-number");
+    countItemNumberInCart++;
+    cartItemNumber.textContent = countItemNumberInCart;
+    cartIconWrapperDivElement.appendChild(cartItemNumber);
+  });
+};
+
+const showNavigationMenu = () => {
+  burgerMenuIcon.addEventListener("click", () => {
+    if (!isNavOpen) {
+      navigationSidebar.style.left = 0;
+      burgerMenuIcon.style.paddingLeft = "8rem";
+    } else {
+      navigationSidebar.style.left = "-100%";
+      burgerMenuIcon.style.paddingLeft = "0";
+    }
+    isNavOpen = !isNavOpen;
+  });
+};
 
 const showProduct = () => {
   products.forEach((productObj) => {
@@ -93,16 +116,3 @@ const showProduct = () => {
 };
 
 showProduct();
-
-let isNavOpen = false;
-
-burgerMenuIcon.addEventListener("click", () => {
-  if (!isNavOpen) {
-    navigationSidebar.style.left = 0;
-    burgerMenuIcon.style.paddingLeft = "8rem";
-  } else {
-    navigationSidebar.style.left = "-100%";
-    burgerMenuIcon.style.paddingLeft = "0";
-  }
-  isNavOpen = !isNavOpen;
-});
