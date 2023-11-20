@@ -180,6 +180,10 @@ a {
   margin-right: 10rem;
 }
 
+.cart-icon:hover {
+  cursor: pointer;
+}
+
 .item-number {
   padding: 0.4rem;
   background-color: var(--btn-and-link-color);
@@ -308,16 +312,15 @@ a {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid #21252920;
   box-shadow: 5px 5px 10px var(--btn-and-link-color-shadow);
   transition: all 0.5s ease-out;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .card:hover {
   transform: scale(1.05);
+  backface-visibility: hidden;
   box-shadow: 5px 5px 10px var(--accent-color-shadow);
   cursor: pointer;
 }
