@@ -27,20 +27,9 @@ const fetchData = (urlParam) => {
     .then((data) => {
       currentProducts = [...data];
       updateDisplay();
-      openProductDetailPage(currentProducts);
+      openProductDetailPage();
     })
     .catch((error) => console.log(error));
-};
-
-const openProductDetailPage = (productsParam) => {
-  const currentProducts = productsParam;
-  const cards = document.querySelectorAll(".card");
-  for (let i = 0; i < currentProducts.length; i++) {
-    cards[i].addEventListener("click", () => {
-      const paramId = currentProducts[i].id;
-      window.location.href = `./assets/html/product-detail-page.html?id=${paramId}`;
-    });
-  }
 };
 
 const updateDisplay = () => {
@@ -86,6 +75,16 @@ const createProductCard = (productParam) => {
   cardFooterDivElement.append(cardHrElement, cardDivElement);
   cardArticleElement.append(cardHeaderDivElement, cardFooterDivElement);
   cardDivElement.append(cardParagraphElement, cardButtonElement);
+};
+
+const openProductDetailPage = () => {
+  const cards = document.querySelectorAll(".card");
+  for (let i = 0; i < currentProducts.length; i++) {
+    cards[i].addEventListener("click", () => {
+      const paramId = currentProducts[i].id;
+      window.location.href = `./assets/html/product-detail-page.html?id=${paramId}`;
+    });
+  }
 };
 
 const searchItems = () => {
@@ -166,20 +165,23 @@ const filterProducts = () => {
   });
 };
 
+const showNavMenu = () => {
+  let isNavOpen = false;
+
+  burgerMenuIconElement.addEventListener("click", () => {
+    if (!isNavOpen) {
+      navigationSidebarElement.style.left = 0;
+      burgerMenuIconElement.style.paddingLeft = "8rem";
+    } else {
+      navigationSidebarElement.style.left = "-100%";
+      burgerMenuIconElement.style.paddingLeft = "0";
+    }
+    isNavOpen = !isNavOpen;
+  });
+};
+
 fetchData("products");
 sortProducts();
 searchItems();
 filterProducts();
-
-let isNavOpen = false;
-
-burgerMenuIconElement.addEventListener("click", () => {
-  if (!isNavOpen) {
-    navigationSidebarElement.style.left = 0;
-    burgerMenuIconElement.style.paddingLeft = "8rem";
-  } else {
-    navigationSidebarElement.style.left = "-100%";
-    burgerMenuIconElement.style.paddingLeft = "0";
-  }
-  isNavOpen = !isNavOpen;
-});
+showNavMenu();
