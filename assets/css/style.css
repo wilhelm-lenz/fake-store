@@ -147,7 +147,7 @@ a {
 
 .navigation {
   padding-inline: 4rem;
-  padding-top: 6rem;
+  padding-top: 6.4rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -177,7 +177,7 @@ a {
   color: var(--btn-and-link-color);
 }
 
-.cart-icon-wrapper {
+.menu-icon-wrapper {
   position: relative;
   display: flex;
   justify-content: space-between;

@@ -6,8 +6,8 @@ const searchFilterSelectElement = document.querySelector(
   ".search-filter-items"
 );
 const categoryBtnElements = document.querySelectorAll(".categorie-btn");
-const burgerMenuIcon = document.querySelector(".burger-menu");
-const navigationSidebar = document.querySelector(".navigation");
+const burgerMenuIconElement = document.querySelector(".burger-menu");
+const navigationSidebarElement = document.querySelector(".navigation");
 
 let currentProducts = [];
 
@@ -27,15 +27,20 @@ const fetchData = (urlParam) => {
     .then((data) => {
       currentProducts = [...data];
       updateDisplay();
-      const cards = document.querySelectorAll(".card");
-      for (let i = 0; i < currentProducts.length; i++) {
-        cards[i].addEventListener("click", () => {
-          const paramId = currentProducts[i].id;
-          window.location.href = `./assets/html/product-detail-page.html?id=${paramId}`;
-        });
-      }
+      openProductDetailPage(currentProducts);
     })
     .catch((error) => console.log(error));
+};
+
+const openProductDetailPage = (productsParam) => {
+  const currentProducts = productsParam;
+  const cards = document.querySelectorAll(".card");
+  for (let i = 0; i < currentProducts.length; i++) {
+    cards[i].addEventListener("click", () => {
+      const paramId = currentProducts[i].id;
+      window.location.href = `./assets/html/product-detail-page.html?id=${paramId}`;
+    });
+  }
 };
 
 const updateDisplay = () => {
@@ -168,13 +173,13 @@ filterProducts();
 
 let isNavOpen = false;
 
-burgerMenuIcon.addEventListener("click", () => {
+burgerMenuIconElement.addEventListener("click", () => {
   if (!isNavOpen) {
-    navigationSidebar.style.left = 0;
-    burgerMenuIcon.style.paddingLeft = "8rem";
+    navigationSidebarElement.style.left = 0;
+    burgerMenuIconElement.style.paddingLeft = "8rem";
   } else {
-    navigationSidebar.style.left = "-100%";
-    burgerMenuIcon.style.paddingLeft = "0";
+    navigationSidebarElement.style.left = "-100%";
+    burgerMenuIconElement.style.paddingLeft = "0";
   }
   isNavOpen = !isNavOpen;
 });
